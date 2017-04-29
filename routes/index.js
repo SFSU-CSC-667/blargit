@@ -13,8 +13,9 @@ router.get( '/', ( request, response ) => {
 })
 
 router.post( '/test', ( request, response ) => {
-  User.create( faker.Internet.email )
-    .then( user => broadcast( 'user-created', user ))
+  User.create( faker.internet.email() )
+    .then( user => broadcast( request.app.get( 'io' ), 'user-created', user ))
+    .then( _ => response.send('done'))
 })
 
 module.exports = router
