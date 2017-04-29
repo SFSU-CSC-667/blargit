@@ -5,5 +5,8 @@ const FIND_BY_OWNER = `
 `
 
 module.exports = {
-  findByOwner: id => db.any( FIND_BY_OWNER, id )
+  findByOwner: owner_id => db.any( FIND_BY_OWNER, owner_id )
+  // findByOwner: owner_id => {
+  //   return db.any( FIND_BY_OWNER, owner_id )
+  // }
 }
